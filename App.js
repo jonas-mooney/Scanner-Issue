@@ -1,0 +1,45 @@
+import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Scanner from './components/Scanner';
+import Footer from './components/Footer';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+const Stack = createNativeStackNavigator();
+
+
+export default function App() {
+  const [page, setPage] = useState('History')
+
+  return (
+    <NavigationContainer>
+        <StatusBar style='dark'/>
+          <GestureHandlerRootView style={styles.screenContent}>
+            <Stack.Navigator screenOptions={{ headerShown: false, animation: 'none' }}>
+              <Stack.Screen name="Scanner" component={Scanner} />
+            </Stack.Navigator>
+          </GestureHandlerRootView>
+
+          <Footer 
+            handlePageChange={(newPage) => {
+              setPage(newPage)
+            }}
+            />
+      </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  viewport: {
+    flex: 1,
+  },
+  screenContent: {
+    flex: 12,
+    backgroundColor: 'skyblue'
+  },
+});
+
+// #9B5DE5 Amethyst
+// watchman watch-del-all

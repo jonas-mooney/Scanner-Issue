@@ -9,4 +9,4 @@
 **After barcode scan, the modal will popup. When dismissed, the app should crash.**<br>
 
 **I really appreciate you're help taking a look at this! Thank you!**<br>
-I'm using an Iphone X
+I'm using an iPhone X
